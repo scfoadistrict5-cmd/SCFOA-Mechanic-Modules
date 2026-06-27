@@ -91,8 +91,6 @@ html,body{height:100%;overflow:hidden;background:#000;font-family:var(--f-body)}
 .dot.visited{background:var(--red);}
 
 
-@media(max-width:600px){
-  .title-left{grid-template-rows:auto auto auto !important;height:auto !important;min-height:100%;}
   .title-right{display:none !important;}
   .title-main{font-size:clamp(2.5rem,12vw,5rem) !important;}
   .title-center{padding:1rem 1.5rem !important;}
@@ -100,8 +98,6 @@ html,body{height:100%;overflow:hidden;background:#000;font-family:var(--f-body)}
   #startBtn{padding:0.6rem 1.5rem !important;font-size:1rem !important;margin-top:0.5rem !important;}
   .title-eyebrow{font-size:0.7rem !important;}
 }
-@media(max-width:1024px){
-  .slide-title{overflow:visible !important;}
   .title-right{display:none !important;}
   .title-inst{display:none !important;}
   .title-left{width:100% !important;grid-template-rows:auto 1fr auto !important;min-height:0 !important;}
@@ -114,57 +110,81 @@ html,body{height:100%;overflow:hidden;background:#000;font-family:var(--f-body)}
 }
 
 
-/* ── Responsive: Tablet ── */
+
+/* ════════════════════════════════════
+   RESPONSIVE — consolidated clean block
+   ════════════════════════════════════ */
+
+/* Tablet (≤900px) — shrink logo panel */
 @media (max-width: 900px) {
   .title-right { width: 240px !important; padding: 1.5rem !important; }
   .title-logo  { width: 160px !important; }
   .title-main  { font-size: clamp(3.5rem, 10vw, 6rem) !important; }
 }
 
-/* ── Responsive: Mobile ── */
-@media (max-width: 600px) {
-  .slide-title  { flex-direction: column !important; }
+/* Mobile portrait (≤600px) */
+@media (max-width: 600px) and (orientation: portrait) {
+  .slide-title  { flex-direction: column !important; overflow: hidden !important; }
   .title-right  { display: none !important; }
-  .title-left   { width: 100% !important; border-right: none !important; grid-template-rows: auto 1fr auto !important; height: 100% !important; }
+  .title-accent { display: none !important; }
+  .title-left   {
+    width: 100% !important;
+    border-right: none !important;
+    display: grid !important;
+    grid-template-rows: auto 1fr auto !important;
+    height: 100% !important;
+    overflow: hidden !important;
+  }
   .title-main   { font-size: clamp(2.8rem, 14vw, 4.5rem) !important; }
   .title-top    { padding: 0.6rem 1.2rem !important; }
   .title-center { padding: 0.8rem 1.2rem !important; }
-  .title-bottom { padding: 0.6rem 1.2rem 5.5rem !important; }
+  .title-bottom { padding: 0.6rem 1.2rem 1rem !important; }
+  .title-inst   { display: none !important; }
   .s-header { padding: 0.4rem 0.9rem 0 !important; }
   .s-body   { padding: 0.4rem 0.9rem 0.2rem !important; }
   .s-title  { font-size: clamp(1.1rem, 4.5vw, 1.7rem) !important; }
   #nav  { bottom: calc(0.8rem + env(safe-area-inset-bottom)); right: 0.8rem !important; }
   #dots { bottom: calc(1.2rem + env(safe-area-inset-bottom)); }
   .nbtn    { padding: 0.55rem 1rem !important; font-size: 0.85rem !important; }
-  #breplay { padding: 0.55rem 0.9rem !important; font-size: 0.85rem !important; }
-  #startBtn { width: 100% !important; align-self: stretch !important; text-align: center !important; box-sizing: border-box !important; }
+  #breplay { padding: 0.55rem 0.9rem !important; }
+  #startBtn { width: 100% !important; box-sizing: border-box !important; }
 }
 
-
-/* ── Landscape mobile (short screen) ── */
+/* Mobile landscape — short viewport, allow scrolling to reach start button */
 @media (max-height: 500px) and (orientation: landscape) {
-  .slide-title  { flex-direction: row !important; overflow: visible !important; }
+  /* Make the title SLIDE itself scrollable */
+  .slide-title {
+    flex-direction: column !important;
+    position: relative !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
   .title-right  { display: none !important; }
-  .title-left   {
+  .title-accent { display: none !important; }
+  .title-left {
     width: 100% !important;
     border-right: none !important;
-    grid-template-rows: auto 1fr auto !important;
-    height: 100vh !important;
-    overflow-y: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    grid-template-rows: unset !important;
   }
-  .title-top    { padding: 0.3rem 1.2rem !important; min-height: 0 !important; }
-  .title-center { padding: 0.3rem 1.2rem !important; flex-shrink: 1 !important; }
-  .title-main   { font-size: clamp(1.8rem, 7vw, 3rem) !important; margin-bottom: 0.2rem !important; }
+  .title-top    { padding: 0.4rem 1.5rem !important; flex-shrink: 0 !important; }
+  .title-center { padding: 0.3rem 1.5rem !important; flex-shrink: 0 !important; justify-content: flex-start !important; }
+  .title-main   { font-size: clamp(1.6rem, 5vw, 2.4rem) !important; line-height: 1 !important; margin-bottom: 0.2rem !important; }
   .title-sub    { font-size: 0.75rem !important; }
   .title-inst   { display: none !important; }
-  .title-bottom {
-    padding: 0.4rem 1.2rem calc(0.4rem + env(safe-area-inset-bottom)) !important;
-    flex-shrink: 0 !important;
-    overflow: visible !important;
-  }
-  #startBtn     { margin-top: 0.3rem !important; padding: 0.5rem 1.5rem !important; font-size: 0.9rem !important; }
-  #nav  { bottom: calc(0.5rem + env(safe-area-inset-bottom)); right: 0.8rem !important; }
-  #dots { bottom: calc(0.8rem + env(safe-area-inset-bottom)); }
+  .title-bottom { padding: 0.4rem 1.5rem 1rem !important; flex-shrink: 0 !important; }
+  .title-tags span { padding: 0.15rem 0.6rem !important; font-size: 0.75rem !important; }
+  #startBtn     { padding: 0.45rem 1.4rem !important; font-size: 0.9rem !important; }
+  #nav  { bottom: calc(0.4rem + env(safe-area-inset-bottom)); right: 0.8rem !important; }
+  #dots { display: none !important; }
+  .s-header { padding: 0.4rem 0.9rem 0 !important; }
+  .s-body   { padding: 0.4rem 0.9rem 0.2rem !important; }
 }
 
 </style>
@@ -181,7 +201,7 @@ html,body{height:100%;overflow:hidden;background:#000;font-family:var(--f-body)}
     </div>
     <div class="title-bottom">
       <div class="title-tags"><span>SCFOA</span><span>BACK JUDGE</span></div>
-      <button id="startBtn" onclick="startModule()" style="margin-top:1rem;background:var(--gold);color:var(--bg);border:none;padding:0.75rem 2.5rem;font-family:var(--f-head);font-size:1.2rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;align-self:flex-start;">▶ Start Module</button>
+      <button id="startBtn" onclick="startModule()" style="background:var(--gold);color:var(--bg);border:none;padding:0.75rem 2.5rem;font-family:var(--f-head);font-size:1.2rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;align-self:flex-start;">▶ Start Module</button>
     </div>
   </div>
   <div class="title-right">
