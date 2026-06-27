@@ -100,14 +100,23 @@ html,body{height:100%;overflow:hidden;background:#000;font-family:var(--f-body)}
 .dot.active{background:var(--gold);transform:scale(1.5);}
 .dot.visited{background:var(--red);}
 
-@media(max-width:768px){
-  .slide-title{flex-direction:column !important;}
+
   .title-left{grid-template-rows:auto auto auto !important;height:auto !important;min-height:100%;}
   .title-right{display:none !important;}
   .title-main{font-size:clamp(2.5rem,12vw,5rem) !important;}
   .title-center{padding:1rem 1.5rem !important;}
   .title-bottom{padding:0.75rem 1.5rem !important;}
   #startBtn{padding:0.6rem 1.5rem !important;font-size:1rem !important;margin-top:0.5rem !important;}
+  .title-eyebrow{font-size:0.7rem !important;}
+}
+
+@media(max-width:1024px){
+  .title-right{display:none !important;}
+  .title-left{width:100% !important;grid-template-rows:auto auto auto !important;height:100% !important;}
+  .title-main{font-size:clamp(2.5rem,10vw,6rem) !important;}
+  .title-center{padding:1rem 2rem !important;}
+  .title-bottom{padding:0.75rem 2rem !important;overflow:visible !important;}
+  #startBtn{padding:0.6rem 1.5rem !important;font-size:1rem !important;margin-top:0.5rem !important;display:block !important;}
   .title-eyebrow{font-size:0.7rem !important;}
 }
 </style>
