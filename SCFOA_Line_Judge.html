@@ -111,6 +111,7 @@ html,body{height:100%;overflow:hidden;background:#000;font-family:var(--f-body)}
 
 
 
+
 /* ════════════════════════════════════
    RESPONSIVE — consolidated clean block
    ════════════════════════════════════ */
@@ -131,15 +132,18 @@ html,body{height:100%;overflow:hidden;background:#000;font-family:var(--f-body)}
     width: 100% !important;
     border-right: none !important;
     display: grid !important;
-    grid-template-rows: auto 1fr auto !important;
+    grid-template-rows: auto auto auto !important;
     height: 100% !important;
-    overflow: hidden !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
   }
-  .title-main   { font-size: clamp(2.8rem, 14vw, 4.5rem) !important; }
-  .title-top    { padding: 0.6rem 1.2rem !important; }
-  .title-center { padding: 0.8rem 1.2rem !important; }
-  .title-bottom { padding: 0.6rem 1.2rem 1rem !important; }
+  .title-top    { padding: 0.5rem 1.2rem !important; flex-shrink: 0 !important; }
+  .title-center { padding: 0.6rem 1.2rem !important; flex-shrink: 0 !important; justify-content: flex-start !important; }
+  .title-main   { font-size: clamp(2.8rem, 14vw, 4.5rem) !important; margin-bottom: 0.3rem !important; }
+  .title-sub    { font-size: 0.9rem !important; }
   .title-inst   { display: none !important; }
+  .title-bottom { padding: 0.6rem 1.2rem 1rem !important; flex-shrink: 0 !important; }
+  #startBtn     { width: 100% !important; box-sizing: border-box !important; }
   .s-header { padding: 0.4rem 0.9rem 0 !important; }
   .s-body   { padding: 0.4rem 0.9rem 0.2rem !important; }
   .s-title  { font-size: clamp(1.1rem, 4.5vw, 1.7rem) !important; }
@@ -147,12 +151,10 @@ html,body{height:100%;overflow:hidden;background:#000;font-family:var(--f-body)}
   #dots { bottom: calc(1.2rem + env(safe-area-inset-bottom)); }
   .nbtn    { padding: 0.55rem 1rem !important; font-size: 0.85rem !important; }
   #breplay { padding: 0.55rem 0.9rem !important; }
-  #startBtn { width: 100% !important; box-sizing: border-box !important; }
 }
 
-/* Mobile landscape — short viewport, allow scrolling to reach start button */
+/* Mobile landscape — allow scrolling to reach start button */
 @media (max-height: 500px) and (orientation: landscape) {
-  /* Make the title SLIDE itself scrollable */
   .slide-title {
     flex-direction: column !important;
     position: relative !important;
