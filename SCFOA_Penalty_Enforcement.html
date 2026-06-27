@@ -142,6 +142,33 @@ html,body{height:100%;overflow:hidden;background:#000;font-family:var(--f-body)}
   #startBtn { width: 100% !important; align-self: stretch !important; text-align: center !important; box-sizing: border-box !important; }
 }
 
+
+/* ── Landscape mobile (short screen) ── */
+@media (max-height: 500px) and (orientation: landscape) {
+  .slide-title  { flex-direction: row !important; overflow: visible !important; }
+  .title-right  { display: none !important; }
+  .title-left   {
+    width: 100% !important;
+    border-right: none !important;
+    grid-template-rows: auto 1fr auto !important;
+    height: 100vh !important;
+    overflow-y: auto !important;
+  }
+  .title-top    { padding: 0.3rem 1.2rem !important; min-height: 0 !important; }
+  .title-center { padding: 0.3rem 1.2rem !important; flex-shrink: 1 !important; }
+  .title-main   { font-size: clamp(1.8rem, 7vw, 3rem) !important; margin-bottom: 0.2rem !important; }
+  .title-sub    { font-size: 0.75rem !important; }
+  .title-inst   { display: none !important; }
+  .title-bottom {
+    padding: 0.4rem 1.2rem calc(0.4rem + env(safe-area-inset-bottom)) !important;
+    flex-shrink: 0 !important;
+    overflow: visible !important;
+  }
+  #startBtn     { margin-top: 0.3rem !important; padding: 0.5rem 1.5rem !important; font-size: 0.9rem !important; }
+  #nav  { bottom: calc(0.5rem + env(safe-area-inset-bottom)); right: 0.8rem !important; }
+  #dots { bottom: calc(0.8rem + env(safe-area-inset-bottom)); }
+}
+
 </style>
 </head>
 <body>
