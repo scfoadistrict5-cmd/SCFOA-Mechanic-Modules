@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>SCFOA · Referee</title>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -134,6 +134,7 @@ html,body{height:100%;overflow:hidden;background:#000;font-family:var(--f-body)}
 .dot.visited{background:var(--red);}
 
 
+@media(max-width:600px){
   .title-left{grid-template-rows:auto auto auto !important;height:auto !important;min-height:100%;}
   .title-right{display:none !important;}
   .title-main{font-size:clamp(2.5rem,12vw,5rem) !important;}
@@ -153,7 +154,34 @@ html,body{height:100%;overflow:hidden;background:#000;font-family:var(--f-body)}
   .title-sub{font-size:0.85rem !important;}
   .title-bottom{padding:0.5rem 1.5rem 1rem !important;overflow:visible !important;}
   #startBtn{display:block !important;padding:0.5rem 1.5rem !important;font-size:0.95rem !important;margin-top:0.3rem !important;}
-}</style>
+}
+/* ── Responsive: Tablet ── */
+@media (max-width: 900px) {
+  .title-right { width: 240px !important; padding: 1.5rem !important; }
+  .title-logo  { width: 160px !important; }
+  .title-main  { font-size: clamp(3.5rem, 10vw, 6rem) !important; }
+}
+
+/* ── Responsive: Mobile ── */
+@media (max-width: 600px) {
+  .slide-title  { flex-direction: column !important; }
+  .title-right  { display: none !important; }
+  .title-left   { width: 100% !important; border-right: none !important; grid-template-rows: auto 1fr auto !important; height: 100% !important; }
+  .title-main   { font-size: clamp(2.8rem, 14vw, 4.5rem) !important; }
+  .title-top    { padding: 0.6rem 1.2rem !important; }
+  .title-center { padding: 0.8rem 1.2rem !important; }
+  .title-bottom { padding: 0.6rem 1.2rem 5.5rem !important; }
+  .s-header { padding: 0.4rem 0.9rem 0 !important; }
+  .s-body   { padding: 0.4rem 0.9rem 0.2rem !important; }
+  .s-title  { font-size: clamp(1.1rem, 4.5vw, 1.7rem) !important; }
+  #nav  { bottom: calc(0.8rem + env(safe-area-inset-bottom)); right: 0.8rem !important; }
+  #dots { bottom: calc(1.2rem + env(safe-area-inset-bottom)); }
+  .nbtn    { padding: 0.55rem 1rem !important; font-size: 0.85rem !important; }
+  #breplay { padding: 0.55rem 0.9rem !important; font-size: 0.85rem !important; }
+  #startBtn { width: 100% !important; align-self: stretch !important; text-align: center !important; box-sizing: border-box !important; }
+}
+
+</style>
 </head>
 <body>
 <div id="pres">
