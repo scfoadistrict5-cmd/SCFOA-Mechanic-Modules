@@ -80,7 +80,7 @@ html,body{height:100%;overflow:hidden;background:#000;font-family:var(--f-body)}
   content:'';position:absolute;left:0;top:0;width:6px;height:100%;
   background:linear-gradient(to bottom,var(--gold),var(--red));
 }
-.closing-inner{flex:1;display:flex;flex-direction:column;justify-content:center;padding:3rem 3rem 3rem 4rem;}
+.closing-inner{flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0;padding:3rem 3rem 3rem 4rem;}
 .closing-badge{
   font-family:var(--f-head);font-size:0.85rem;font-weight:700;
   letter-spacing:0.3em;color:var(--gold);text-transform:uppercase;
@@ -162,7 +162,7 @@ html,body{height:100%;overflow:hidden;background:#000;font-family:var(--f-body)}
 .timer-gold{height:100%;background:var(--gold);transition:width 1s linear;position:absolute;right:0;top:0;}
 
 /* ══ LAYOUT: bullet-list ══ */
-.bullet-list{display:flex;flex-direction:column;flex:1;gap:0;}
+.bullet-list{display:flex;flex-direction:column;flex:1;min-height:0;gap:0;}
 .bl-item{
   display:flex;align-items:center;gap:1.2rem;
   flex:1;min-height:0;
@@ -362,7 +362,7 @@ html,body{height:100%;overflow:hidden;background:#000;font-family:var(--f-body)}
 }
 .bn-head{font-family:var(--f-head);font-size:1.1rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.08em;}
 .bn-sub{font-size:0.95rem;color:var(--dim);line-height:1.4;margin-top:0.2rem;}
-.bn-bullets{display:flex;flex-direction:column;flex:1;gap:0;}
+.bn-bullets{display:flex;flex-direction:column;flex:1;min-height:0;gap:0;}
 .bn-item{
   flex:1;border-bottom:1px solid var(--dim2);
   padding:0.3rem 0.5rem;
@@ -374,7 +374,7 @@ html,body{height:100%;overflow:hidden;background:#000;font-family:var(--f-body)}
 
 /* ══ LAYOUT: role_list ══ */
 .rl-intro{font-size:1rem;color:var(--dim);margin-bottom:0.5rem;flex-shrink:0;}
-.rl-list{display:flex;flex-direction:column;flex:1;gap:0;}
+.rl-list{display:flex;flex-direction:column;flex:1;min-height:0;gap:0;}
 .rl-item{
   flex:1;display:flex;align-items:stretch;
   border-bottom:1px solid var(--dim2);
