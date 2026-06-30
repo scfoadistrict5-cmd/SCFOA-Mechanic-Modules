@@ -64,10 +64,10 @@ html,body{height:100%;overflow:hidden;background:#000;font-family:var(--f-body)}
 .bl-icon{font-family:var(--f-head);font-size:1.4rem;font-weight:900;color:var(--gold);flex-shrink:0;width:2.4rem;text-align:center;}
 .bl-text{font-size:clamp(1.05rem,1.8vw,1.35rem);line-height:1.45;color:var(--white);}
 .bl-text strong{color:var(--gold);}
-.cb-layout{display:grid;grid-template-columns:240px 1fr;gap:1rem;flex:1;min-height:0;}
+.cb-layout{display:grid;grid-template-columns:260px 1fr;gap:1rem;flex:1;min-height:0;}
 .cb-callout{background:var(--gold);color:var(--bg);padding:1.2rem;display:flex;flex-direction:column;justify-content:center;}
 .cb-label{font-family:var(--f-head);font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.4rem;opacity:0.75;}
-.cb-value{font-family:var(--f-head);font-size:1.8rem;font-weight:900;text-transform:uppercase;margin-bottom:0.5rem;line-height:1.1;}
+.cb-value{font-family:var(--f-head);font-size:2rem;font-weight:900;text-transform:uppercase;margin-bottom:0.5rem;line-height:1.1;}
 .cb-note{font-size:0.95rem;line-height:1.4;opacity:0.85;}
 .cb-list{display:flex;flex-direction:column;gap:0.4rem;}
 .cb-item{flex:1;background:var(--dim3);padding:0.75rem 1rem;border-left:3px solid var(--gold);}
@@ -121,6 +121,18 @@ html,body{height:100%;overflow:hidden;background:#000;font-family:var(--f-body)}
   .title-main  { font-size: clamp(3.5rem, 10vw, 6rem) !important; }
 }
 
+/* Tablet (601px-900px) — ensure vertical scroll works; columns stay since they fit */
+@media (min-width: 601px) and (max-width: 900px) {
+  .s-body         { overflow-y: auto !important; -webkit-overflow-scrolling: touch !important; padding-bottom: 4.5rem !important; }
+  .closing-inner  { overflow-y: auto !important; -webkit-overflow-scrolling: touch !important; }
+}
+
+/* Tablet landscape and larger windows (901px-1366px, taller than phone-landscape threshold) — ensure scroll, no width-based grid changes needed */
+@media (min-width: 901px) and (max-width: 1366px) and (min-height: 501px) {
+  .s-body         { overflow-y: auto !important; -webkit-overflow-scrolling: touch !important; padding-bottom: 4.5rem !important; }
+  .closing-inner  { overflow-y: auto !important; -webkit-overflow-scrolling: touch !important; }
+}
+
 /* Mobile portrait (≤600px) */
 @media (max-width: 600px) and (orientation: portrait) {
   .slide-title  { flex-direction: column !important; overflow: hidden !important; }
@@ -143,7 +155,8 @@ html,body{height:100%;overflow:hidden;background:#000;font-family:var(--f-body)}
   .title-bottom { padding: 0.6rem 1.2rem 1rem !important; flex-shrink: 0 !important; }
   #startBtn     { width: 100% !important; box-sizing: border-box !important; }
   .s-header { padding: 0.4rem 0.9rem 0 !important; }
-  .s-body   { padding: 0.4rem 0.9rem 4.2rem !important; overflow-y: auto !important; }
+  .s-body   { padding: 0.4rem 0.9rem 4.2rem !important; overflow-y: auto !important; -webkit-overflow-scrolling: touch !important; }
+  .closing-inner { padding: 1.5rem 1.2rem !important; overflow-y: auto !important; -webkit-overflow-scrolling: touch !important; }
   .s-title  { font-size: clamp(1.1rem, 4.5vw, 1.7rem) !important; }
   #nav  { bottom: calc(0.8rem + env(safe-area-inset-bottom)); right: 0.8rem !important; }
   #dots { bottom: calc(1.2rem + env(safe-area-inset-bottom)); }
@@ -188,7 +201,8 @@ html,body{height:100%;overflow:hidden;background:#000;font-family:var(--f-body)}
   #nav  { bottom: calc(0.4rem + env(safe-area-inset-bottom)); right: 0.8rem !important; }
   #dots { display: none !important; }
   .s-header { padding: 0.4rem 0.9rem 0 !important; }
-  .s-body   { padding: 0.4rem 0.9rem 3.6rem !important; overflow-y: auto !important; }
+  .s-body   { padding: 0.4rem 0.9rem 3.6rem !important; overflow-y: auto !important; -webkit-overflow-scrolling: touch !important; }
+  .closing-inner { padding: 1rem 1.5rem !important; overflow-y: auto !important; -webkit-overflow-scrolling: touch !important; }
   .cb-layout  { grid-template-columns: 1fr !important; gap: 0.5rem !important; }
   .cb-callout { padding: 0.6rem !important; }
   .cb-value   { font-size: 1.1rem !important; }
