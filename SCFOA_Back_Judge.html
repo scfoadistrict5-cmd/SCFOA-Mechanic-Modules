@@ -151,6 +151,10 @@ html,body{height:100%;overflow:hidden;background:#000;font-family:var(--f-body)}
   #dots { bottom: calc(1.2rem + env(safe-area-inset-bottom)); }
   .nbtn    { padding: 0.55rem 1rem !important; font-size: 0.85rem !important; }
   #breplay { padding: 0.55rem 0.9rem !important; }
+  .cb-layout  { grid-template-columns: 1fr !important; gap: 0.6rem !important; overflow-y: auto !important; }
+  .cb-callout { padding: 0.8rem !important; }
+  .cb-value   { font-size: 1.3rem !important; }
+  .tcb-layout { grid-template-columns: 1fr !important; gap: 0.6rem !important; overflow-y: auto !important; }
 }
 
 /* Mobile landscape — allow scrolling to reach start button */
@@ -186,7 +190,11 @@ html,body{height:100%;overflow:hidden;background:#000;font-family:var(--f-body)}
   #nav  { bottom: calc(0.4rem + env(safe-area-inset-bottom)); right: 0.8rem !important; }
   #dots { display: none !important; }
   .s-header { padding: 0.4rem 0.9rem 0 !important; }
-  .s-body   { padding: 0.4rem 0.9rem 0.2rem !important; }
+  .s-body   { padding: 0.4rem 0.9rem 0.2rem !important; overflow-y: auto !important; }
+  .cb-layout  { grid-template-columns: 1fr !important; gap: 0.5rem !important; }
+  .cb-callout { padding: 0.6rem !important; }
+  .cb-value   { font-size: 1.1rem !important; }
+  .tcb-layout { grid-template-columns: 1fr !important; gap: 0.5rem !important; }
 }
 
 </style>
